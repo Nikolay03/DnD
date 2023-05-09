@@ -1,0 +1,103 @@
+.list {
+  & > div:not(:last-child) {
+    margin-bottom: 6px;
+  }
+}
+
+.list_dropArea {
+  color: white !important;
+  background: white !important;
+  position: relative;
+  & > :before {
+    content: "Drop Here";
+    color: #687bf7;
+    font-size: 0.5em;
+    text-transform: uppercase;
+    width: 100%;
+    background: #EDF2FF;
+    border: 2px dashed #687bf7;
+    border-radius: 3px;
+    position: absolute;
+    height: calc(100% - 2px);
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.list_child {
+  position: relative;
+  margin-top: 16px;
+  & > :after {
+    content: " ";
+    height: 1px;
+    width: calc(100% + 32px + 32px);
+    background: #E1E1E1;
+    position: absolute;
+    top: 0px;
+    left: -32px;
+  };
+  & > div:not(:last-child) {
+    border-radius: 0px;
+    border-bottom: 1px solid #E1E1E1;
+  };
+  & > div:last-child {
+    padding-bottom: 0px;
+  }
+  & > div > div {
+    padding: 18px 0px;
+  }
+}
+
+.list__item {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 18px 32px;
+}
+
+.list__item__grid {
+  gap: 36px;
+  padding: 18px 32px;
+}
+
+.list__item__label {
+  color: #949494;
+  margin-bottom: 9px;
+  font-size: 12px;
+}
+
+
+.list__item__value {
+  font-size: 16px;
+  line-height: 20px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.list__item__value_parent {
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  & svg {
+    fill: #F2B600;
+    margin-right: 7.8px;
+    font-size: 16px;
+  }
+}
+
+.list__item__value_child {
+  & svg {
+    fill: #F2B600;
+    margin-right: 7.8px;
+    font-size: 16px;
+  }
+}
+
+.dragging {
+  opacity: 1;
+}

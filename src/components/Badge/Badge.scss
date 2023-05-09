@@ -1,0 +1,19 @@
+.badge {
+  background: rgba(37,82,198, 0.3);
+  border-radius: 30px;
+  width: min-content;
+  white-space: nowrap;
+  font-size: 12px;
+  color: #fff;
+  min-width: 30px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.badge_text {
+  background: #ffffff;
+  padding: 4px 10px;
+  color: #397AF5;
+}

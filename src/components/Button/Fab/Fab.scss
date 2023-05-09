@@ -1,0 +1,53 @@
+.btn_fab {
+  transition: all 300ms;
+  cursor: pointer;
+  height: 32px;
+  width: 32px;
+  border: 1px solid #397AF5;
+  background: #ffffff;
+  border-radius: 12px;
+  & * {
+    color: #397AF5;
+  };
+}
+
+.btn_fab_stroke {
+  & svg {
+    stroke: #397AF5;
+  }
+  &:hover {
+    background: #397AF5;
+    & * {
+      stroke: #FFFFFF;
+    }
+  };
+}
+
+.btn_fab_stroke_active {
+  background: #EDF2FF;
+  & svg {
+    transform: rotate(180deg);
+    stroke: #397AF5;
+  }
+}
+
+.btn_fab_fill {
+  & svg {
+    fill: #397AF5;
+  }
+  &:hover {
+    background: #397AF5;
+    & * {
+      fill: #FFFFFF;
+    }
+  };
+}
+
+.btn_fab_fill_active {
+  background: #397AF5;
+  & * {
+    fill: #FFFFFF;
+  }
+}
+
+
