@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/DnD/static/css/main.fcc47adc.css",
-    "main.js": "/DnD/static/js/main.33a01af3.js",
+    "main.css": "/DnD/static/css/main.bd245636.css",
+    "main.js": "/DnD/static/js/main.a4bd3c5e.js",
     "index.html": "/DnD/index.html",
-    "main.fcc47adc.css.map": "/DnD/static/css/main.fcc47adc.css.map",
-    "main.33a01af3.js.map": "/DnD/static/js/main.33a01af3.js.map"
+    "main.bd245636.css.map": "/DnD/static/css/main.bd245636.css.map",
+    "main.a4bd3c5e.js.map": "/DnD/static/js/main.a4bd3c5e.js.map"
   },
   "entrypoints": [
-    "static/css/main.fcc47adc.css",
-    "static/js/main.33a01af3.js"
+    "static/css/main.bd245636.css",
+    "static/js/main.a4bd3c5e.js"
   ]
 }
