@@ -91,7 +91,7 @@ const List = ({hasChild, isVisible, parentId, array}) => {
   }
 
   return (
-    <div className={getClassNames([hasChild && isVisible? 'list_child' : 'list'])}>
+    <div className={getClassNames([hasChild && isVisible? 'list_child list_child_border' : 'list'])}>
       {list.map((item, index) => {
         const isDrop = !Boolean(open)
         return (

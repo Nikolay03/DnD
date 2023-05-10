@@ -31,15 +31,6 @@
 .list_child {
   position: relative;
   margin-top: 16px;
-  & > :after {
-    content: " ";
-    height: 1px;
-    width: calc(100% + 32px + 32px);
-    background: #E1E1E1;
-    position: absolute;
-    top: 0px;
-    left: -32px;
-  };
   & > div:not(:last-child) {
     border-radius: 0px;
     border-bottom: 1px solid #E1E1E1;
@@ -50,6 +41,18 @@
   & > div > div {
     padding: 18px 0px;
   }
+}
+
+.list_child_border {
+  &:after {
+    content: " ";
+    height: 1px;
+    width: calc(100% + 32px + 32px);
+    background: #E1E1E1;
+    position: absolute;
+    top: 0px;
+    left: -32px;
+  };
 }
 
 .list__item {
