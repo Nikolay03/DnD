@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useState} from 'react';
 import getClassNames from "../../../utils/getClassNames";
 import ListItem from "../ListItem";
 
@@ -10,12 +10,12 @@ const initialDnDState = {
   originalOrder: [],
   updatedOrder: []
 }
-const List = ({children, hasChild, parentId, array}) => {
-
-  const ref = useRef(null)
+const List = ({hasChild, isVisible, parentId, array}) => {
 
   const [list, setList] = React.useState(array);
   const [dragAndDrop, setDragAndDrop] = React.useState(initialDnDState);
+  const [open, setOpen] = useState(false)
+
 
 
   // onDragStart fires when an element
@@ -28,12 +28,8 @@ const List = ({children, hasChild, parentId, array}) => {
       isDragging: true,
       originalOrder: list
     });
-
-
-    // Note: this is only for Firefox.
-    // Without it, the DnD won't work.
-    // But we are not using it.
-    event.dataTransfer.setData("text/html", '');
+    event.dataTransfer.setData("text/html", event.target);
+    event.dataTransfer.setDragImage(event.target, 0, 0)
   }
 
   // onDragOver fires when an element being dragged
@@ -95,27 +91,35 @@ const List = ({children, hasChild, parentId, array}) => {
   }
 
   return (
-    <div className={getClassNames([hasChild ? 'list_child' : 'list'])}>
-      {list.map((item, index) => (
-          <div
-              ref={ref}
-              key={index}
+    <div className={getClassNames([hasChild && isVisible? 'list_child' : 'list'])}>
+      {list.map((item, index) => {
+        const isDrop = !Boolean(open)
+        return (
+            <div
+                key={item.id}
+                style={{display: isVisible ? 'block' : 'none', cursor: isDrop ? 'pointer' : null}}
+                data-position={index}
+                draggable={isDrop}
 
-              data-position={index}
-              draggable
+                onDragStart={isDrop ? onDragStart : null}
 
-              onDragStart={onDragStart}
+                onDragOver={isDrop ? onDragOver : null}
+                onDrop={isDrop ? onDrop : null}
 
-              onDragOver={onDragOver}
-              onDrop={onDrop}
+                onDragLeave={isDrop ? onDragLeave : null}
 
-              onDragLeave={onDragLeave}
-
-              className={getClassNames([dragAndDrop && dragAndDrop.draggedTo === Number(index) && "list_dropArea", dragAndDrop.isDragging && 'dragging'])}
-          >
-            <ListItem data={item} parentId={parentId} isDragging={dragAndDrop.isDragging}/>
-          </div>
-      ))}
+                className={getClassNames(isDrop ? [dragAndDrop && dragAndDrop.draggedTo === Number(index) && "list_dropArea", dragAndDrop.isDragging && 'dragging'] : [])}
+            >
+              <ListItem
+                  open={open}
+                  setOpen={setOpen}
+                  data={item}
+                  parentId={parentId}
+                  isDragging={dragAndDrop.isDragging}
+              />
+            </div>
+        )
+      })}
     </div>
   );
 };

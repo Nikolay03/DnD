@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import getClassNames from "../../../utils/getClassNames";
 import {Chev, Folder, Trash, Edit} from "../../../icons";
 import {Grid, Item} from "../../../components/UI";
@@ -23,14 +23,18 @@ const LabelValue = ({hasChild, withFolder, label, value}) => {
       </div>
   )
 }
-const ListItem = ({data, parentId, isDragging}) => {
+const ListItem = ({data, parentId, isDragging,
+                    open,
+                    setOpen
+                  }) => {
+
+  const id = data?.id
+
+  const isOpen = id === open
   const children = data?.children
   const hasChild = Boolean(children)
 
-  const id = data?.id
   const childrenText = hasChild && getChildrenTexts(children)
-
-  const [open, setOpen] = useState(false)
   const numberText = parentId ? `${parentId}.${id}` : id
   return (
       <div className={'list__item'}>
@@ -38,23 +42,23 @@ const ListItem = ({data, parentId, isDragging}) => {
           <Item xs={1}>
             <LabelValue label={'№'} value={numberText}/>
           </Item>
-          <Item xs={2}>
+          <Item xs={childrenText ? 2 : 4}>
             <LabelValue label={'Название'} value={data?.name} hasChild={hasChild} withFolder/>
           </Item>
-          <Item xs={2}>
+          <Item xs={childrenText ? 2 : 5}>
             <LabelValue label={'Очередность'} value={data?.order}/>
           </Item>
-          <Item xs={6}>
+          {childrenText && <Item xs={5}>
             <LabelValue label={'Подкатегории'} value={childrenText}/>
-          </Item>
-          <Item xs={1} className={'flex align-items-center'}>
+          </Item>}
+          <Item xs={2} className={'flex align-items-center justify-content-end'}>
             {hasChild ? (
                 <Badge className={['mr-4']}>
                   {children.length}
                 </Badge>
             ) : null}
             {hasChild && (
-                <Fab isStroke className={['mr-2', open && 'btn_fab_stroke_active']} onClick={() => setOpen(open ? null : id)}>
+                <Fab isStroke className={['mr-2', isOpen && 'btn_fab_stroke_active']} onClick={() => setOpen(open === id ? null : id)}>
                   <Chev/>
                 </Fab>
             )}
@@ -68,8 +72,8 @@ const ListItem = ({data, parentId, isDragging}) => {
             </Dropdown>
           </Item>
         </Grid>
-        {(hasChild && open === id && !isDragging) ? (
-            <List hasChild={hasChild} array={children} parentId={id}/>
+        {hasChild ? (
+            <List hasChild={hasChild} array={children} parentId={id} isVisible={isOpen}/>
         ) : null}
       </div>
   );

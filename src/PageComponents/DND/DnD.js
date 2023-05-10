@@ -15,17 +15,17 @@ const list = [
         order: 1
       },
       {
-        id: 1,
+        id: 2,
         name: 'Mastercard',
         order: 1
       },
       {
-        id: 1,
+        id: 3,
         name: 'Mastercard',
         order: 1
       },
       {
-        id: 1,
+        id: 4,
         name: 'Mastercard',
         order: 1
       }
@@ -42,17 +42,17 @@ const list = [
         order: 1
       },
       {
-        id: 1,
+        id: 2,
         name: 'Mastercard',
         order: 1
       },
       {
-        id: 1,
+        id: 3,
         name: 'Mastercard',
         order: 1
       },
       {
-        id: 1,
+        id: 4,
         name: 'Mastercard',
         order: 1
       }
@@ -69,17 +69,17 @@ const list = [
         order: 1
       },
       {
-        id: 1,
+        id: 2,
         name: 'Mastercard max Mastercard max  Mastercard max  Mastercard max  Mastercard max ',
         order: 1
       },
       {
-        id: 1,
+        id: 3,
         name: 'Mastercard',
         order: 1
       },
       {
-        id: 1,
+        id: 4,
         name: 'Mastercard',
         order: 1
       }
@@ -95,7 +95,7 @@ const DnD = () => {
             Найдено {list.length}
           </Badge>
         </div>
-        <List array={list}/>
+        <List array={list} isVisible={true}/>
       </>
   );
 };

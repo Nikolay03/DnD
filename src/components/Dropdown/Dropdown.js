@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import DropdownContent from './DropdownContent'
 import './dropdown.scss'
 import {Fab} from "../Button/Fab";
