@@ -11,77 +11,89 @@ const list = [
     children: [
       {
         id: 1,
-        name: 'Mastercard',
+        name: 'Максимал фойда (Нац. валюта)',
         order: 1
       },
       {
         id: 2,
-        name: 'Mastercard',
-        order: 1
+        name: 'On-line (Нац. валюта)',
+        order: 2
       },
       {
         id: 3,
-        name: 'Mastercard',
-        order: 1
+        name: 'Аванс (Нац. валюта)',
+        order: 3
       },
       {
         id: 4,
-        name: 'Mastercard',
-        order: 1
+        name: 'Максимал фойда (Ин. валюта)',
+        order: 4
       }
     ]
   },
   {
     id: 2,
-    name: 'Mastercard',
-    order: 1,
+    name: 'вклады',
+    order: 2,
     children: [
       {
         id: 1,
-        name: 'Mastercard',
+        name: 'On-line (Ин. валюта)',
         order: 1
       },
       {
         id: 2,
-        name: 'Mastercard',
-        order: 1
+        name: 'Аванс (Ин. валюта)',
+        order: 2
       },
       {
         id: 3,
         name: 'Mastercard',
-        order: 1
+        order: 3
       },
       {
         id: 4,
-        name: 'Mastercard',
-        order: 1
+        name: 'On-line (Нац. валюта)',
+        order: 4
       }
     ]
   },
   {
     id: 3,
-    name: 'Mastercard',
-    order: 1,
+    name: 'Кредиты',
+    order: 3,
     children: [
       {
         id: 1,
-        name: 'Mastercard',
+        name: 'Test',
         order: 1
       },
       {
         id: 2,
-        name: 'Mastercard max Mastercard max  Mastercard max  Mastercard max  Mastercard max ',
-        order: 1
+        name: 'Mastercard',
+        order: 2,
+        children: [
+          {
+            id: 1,
+            name: 'Кредиты',
+            order: 1
+          },
+          {
+            id: 2,
+            name: 'Mastercard max Mastercard max  Mastercard max  Mastercard max  Mastercard max ',
+            order: 2
+          }
+        ]
       },
       {
         id: 3,
-        name: 'Mastercard',
-        order: 1
+        name: 'Аванс (Нац. валюта)',
+        order: 3
       },
       {
         id: 4,
         name: 'Mastercard',
-        order: 1
+        order: 4
       }
     ]
   }
@@ -95,7 +107,7 @@ const DnD = () => {
             Найдено {list.length}
           </Badge>
         </div>
-        <List array={list} isVisible={true}/>
+        <List array={list} isVisible={true} isRoot/>
       </>
   );
 };

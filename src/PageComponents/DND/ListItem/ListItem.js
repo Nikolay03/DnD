@@ -1,6 +1,6 @@
 import React from 'react';
 import getClassNames from "../../../utils/getClassNames";
-import {Chev, Folder, Trash, Edit} from "../../../icons";
+import {Chev, Folder, Trash, Edit, File} from "../../../icons";
 import {Grid, Item} from "../../../components/UI";
 import Badge from "../../../components/Badge";
 import {Fab} from "../../../components/Button/Fab";
@@ -17,8 +17,10 @@ const LabelValue = ({hasChild, withFolder, label, value}) => {
           {label}
         </div>
         <div className={getClassNames(['list__item__value', hasChild ? 'list__item__value_parent' : 'list__item__value_child'])}>
-          {withFolder && <Folder/>}
+          {withFolder && hasChild ? <Folder/> : withFolder && <File/>}
+          <span>
           {value}
+          </span>
         </div>
       </div>
   )
@@ -39,11 +41,11 @@ const ListItem = ({data, parentId, isDragging,
   return (
       <div className={'list__item'} style={{paddingBottom: isOpen ? '0px' : null}}>
         <Grid  style={{gap: '36px'}}>
-          <Item xs={1}>
-            <LabelValue label={'№'} value={numberText}/>
-          </Item>
-          <Item xs={childrenText ? 2 : 4}>
-            <LabelValue label={'Название'} value={data?.name} hasChild={hasChild} withFolder/>
+          <Item xs={childrenText ? 3 : 5}>
+            <div className={'flex list__item__labelvalue'}>
+              <LabelValue label={'№'} value={numberText}/>
+              <LabelValue label={'Название'} value={data?.name} hasChild={hasChild} withFolder/>
+            </div>
           </Item>
           <Item xs={childrenText ? 2 : 5}>
             <LabelValue label={'Очередность'} value={data?.order}/>
@@ -73,7 +75,7 @@ const ListItem = ({data, parentId, isDragging,
           </Item>
         </Grid>
         {hasChild ? (
-            <List hasChild={hasChild} array={children} parentId={id} isVisible={isOpen}/>
+            <List hasChild={hasChild} array={children} parentId={numberText} isVisible={isOpen}/>
         ) : null}
       </div>
   );

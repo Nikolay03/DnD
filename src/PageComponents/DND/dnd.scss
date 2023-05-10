@@ -44,6 +44,10 @@
   }
 }
 
+.list_child_children {
+
+}
+
 .list_child_border {
   &:after {
     content: " ";
@@ -62,6 +66,13 @@
   padding: 18px 32px;
 }
 
+.list__item__labelvalue {
+  > div:first-child {
+    width: 27px;
+    margin-right: 55px;
+  }
+}
+
 .list__item__grid {
   gap: 36px;
   padding: 18px 32px;
@@ -78,8 +89,14 @@
   font-size: 16px;
   line-height: 20px;
   white-space: nowrap;
-  text-overflow: ellipsis;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  span {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 }
 
 .list__item__value_parent {
@@ -88,6 +105,7 @@
   align-items: center;
   text-transform: uppercase;
   & svg {
+    min-width: 15px;
     fill: #F2B600;
     margin-right: 7.8px;
     font-size: 16px;
@@ -96,7 +114,7 @@
 
 .list__item__value_child {
   & svg {
-    fill: #F2B600;
+    fill: #ADADAD;
     margin-right: 7.8px;
     font-size: 16px;
   }

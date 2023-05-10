@@ -10,7 +10,7 @@ const initialDnDState = {
   originalOrder: [],
   updatedOrder: []
 }
-const List = ({hasChild, isVisible, parentId, array}) => {
+const List = ({hasChild, isVisible, isRoot, parentId, array}) => {
 
   const [list, setList] = React.useState(array);
   const [dragAndDrop, setDragAndDrop] = React.useState(initialDnDState);
@@ -91,7 +91,7 @@ const List = ({hasChild, isVisible, parentId, array}) => {
   }
 
   return (
-    <div className={getClassNames([hasChild && isVisible? 'list_child list_child_border' : 'list'])}>
+    <div className={getClassNames([!isRoot && hasChild && isVisible && parentId && 'list_child_children', hasChild && isVisible? 'list_child list_child_border' : 'list'])}>
       {list.map((item, index) => {
         const isDrop = !Boolean(open)
         return (

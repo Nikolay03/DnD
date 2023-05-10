@@ -2,6 +2,10 @@
 @import './margin';
 
 body {
+  margin: 0;
+  font-family: 'Gilroy', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background: #F5F5F5;
   font-weight: 500;
   color: #212121;
