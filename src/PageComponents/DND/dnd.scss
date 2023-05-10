@@ -11,6 +11,7 @@
   & > :before {
     content: "Drop Here";
     color: #687bf7;
+    z-index: 1;
     font-size: 0.5em;
     text-transform: uppercase;
     width: calc(100% - 4px);
