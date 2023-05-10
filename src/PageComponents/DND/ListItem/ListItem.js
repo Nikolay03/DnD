@@ -37,7 +37,7 @@ const ListItem = ({data, parentId, isDragging,
   const childrenText = hasChild && getChildrenTexts(children)
   const numberText = parentId ? `${parentId}.${id}` : id
   return (
-      <div className={'list__item'}>
+      <div className={'list__item'} style={{paddingBottom: isOpen ? '0px' : null}}>
         <Grid  style={{gap: '36px'}}>
           <Item xs={1}>
             <LabelValue label={'№'} value={numberText}/>
